@@ -1,0 +1,21 @@
+{
+  "name": "sandbox02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.0",
+    "esm": "^3.2.25",
+    "twit": "^2.2.11",
+    "twitter": "^1.7.1"
+  },
+  "type": "module"
+}
