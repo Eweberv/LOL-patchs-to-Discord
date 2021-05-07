@@ -105,7 +105,7 @@ const main = async() => {
     discordClient.on('ready', async() => {
         console.log('Discord bot is online');
         const LOLPatchsChannel = await discordClient.channels.cache.get("799497643344396299"); //#la-grosse-league
-        setInterval(() => {getLastTweets(LOLPatchsChannel)}, 300000);
+        setInterval(() => {getLastTweets(LOLPatchsChannel)}, 10000);
     })
 }
 
