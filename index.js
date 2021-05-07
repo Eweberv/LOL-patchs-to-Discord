@@ -60,7 +60,7 @@ const setTitleBold = (lastTweet) => {
 }
 
 const getLastTweets = async(LOLPatchsChannel) => {
-    let username = 'Aiixode';
+    let username = 'MarkYetter';
     let params = {
         screen_name: username,
         tweet_mode: 'extended'
@@ -81,10 +81,10 @@ const getLastTweets = async(LOLPatchsChannel) => {
                     lastTweet.full_text = setTitleBold(lastTweet);
                     let images = getAllImages(lastTweet);
                     await LOLPatchsChannel.send( '-------------------------------------------------------------------\n' + lastTweet.full_text + '\n\n' + images.join('\n'));
-                    fs.writeFileSync('./lastTweet.json', JSON.stringify(lastTweet));
                 }
                 else
                     console.log(chalk.red(`\nIt's not a patch preview`))
+                fs.writeFileSync('./lastTweet.json', JSON.stringify(lastTweet));
             }
         }
         else {
