@@ -15,7 +15,7 @@ const twitterClient = new Twitter({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-const isPathNote = (lastTweet) => lastTweet.full_text.toLowerCase().includes('preview') && lastTweet.full_text.toLowerCase().includes('11.')
+const isPatchNote = (lastTweet) => lastTweet.full_text.toLowerCase().includes('preview') && lastTweet.full_text.toLowerCase().includes('11.')
 
 
 const initLastTweet = (tweets) => {
@@ -68,14 +68,14 @@ const getLastTweets = async(LOLPatchsChannel) => {
     twitterClient.get('statuses/user_timeline', params, async function(error, tweets, response) {
         if (!error) {
             if (!lastTweet) {
-               initLastTweet(tweets);
+                initLastTweet(tweets);
             }
-            else if (lastTweet.id !== tweets[0].id) {
+            if (lastTweet.id !== tweets[0].id) {
                 console.log('New tweet detected !\n');
                 console.log(tweets[0]);
                 lastTweet = tweets[0];
                 console.log(lastTweet.full_text);
-                if (isPathNote(lastTweet)) {
+                if (isPatchNote(lastTweet)) {
                     console.log(chalk.green(`\nIt's a patch preview !`), '\n-----------------------');
                     lastTweet.full_text = formatTextForDiscord(lastTweet.full_text);
                     lastTweet.full_text = setTitleBold(lastTweet);
@@ -85,10 +85,16 @@ const getLastTweets = async(LOLPatchsChannel) => {
                 else
                     console.log(chalk.red(`\nIt's not a patch preview`))
                 fs.writeFileSync('./lastTweet.json', JSON.stringify(lastTweet));
+                return 0;
+            }
+            else {
+                console.log(`${chalk.red('Last Tweet unchanged')}`);
+                return 0;
             }
         }
         else {
             console.log(error.message);
+            return -1;
         }
     });
 }
