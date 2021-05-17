@@ -80,7 +80,7 @@ const getLastTweets = async(LOLPatchsChannel) => {
                     lastTweet.full_text = formatTextForDiscord(lastTweet.full_text);
                     lastTweet.full_text = setTitleBold(lastTweet);
                     let images = getAllImages(lastTweet);
-                    await LOLPatchsChannel.send( '-------------------------------------------------------------------\n' + lastTweet.full_text + '\n\n' + images.join('\n'));
+                    await LOLPatchsChannel.send( '-------------------------------------------------------------------\n' + '@LOL\n' + lastTweet.full_text + '\n\n' + images.join('\n'));
                 }
                 else
                     console.log(chalk.red(`\nIt's not a patch preview`))
