@@ -9,4 +9,4 @@ This project is deprecated for 2 reasons:
 
 <h2>Example of a forwarded tweet to Discord :</h2>
 
-![image](https://github.com/Eweberv/LOL-patchs-to-Discord/assets/25757634/d229fe34-521d-4440-b594-09660ce1e2d1)
+![Discord_JKRn6Hiu8Z](https://github.com/Eweberv/LOL-patchs-to-Discord/assets/25757634/35db3e1c-af16-4241-a965-4bcbfc4cc3ed)
